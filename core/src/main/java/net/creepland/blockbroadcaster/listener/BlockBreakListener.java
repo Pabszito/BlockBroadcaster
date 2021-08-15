@@ -2,7 +2,6 @@ package net.creepland.blockbroadcaster.listener;
 
 import lombok.RequiredArgsConstructor;
 import net.creepland.blockbroadcaster.BlockBroadcaster;
-import net.creepland.blockbroadcaster.api.block.BlockAmount;
 import net.creepland.blockbroadcaster.api.block.BlockParser;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -28,25 +27,23 @@ public class BlockBreakListener implements Listener {
                 plugin.getSettings().getStringList("settings.whitelisted_blocks")
         );
 
-        if(!plugin.getSettings().getBoolean("settings.enabled"))
+        if (!plugin.getSettings().getBoolean("settings.enabled")) {
             return;
+        }
 
-        if(plugin.getSettings().getBoolean("settings.survival_only") && player.getGameMode() != GameMode.SURVIVAL)
+        if (plugin.getSettings().getBoolean("settings.survival_only") && player.getGameMode() != GameMode.SURVIVAL) {
             return;
+        }
 
-        if(!whitelistedMaterials.containsKey(block.getType()))
+        if(!whitelistedMaterials.containsKey(block.getType())) {
             return;
-
-        int radius = plugin.getSettings().getInt("settings.radius");
-        int amount = BlockAmount.getAmountInRadius(block, radius);
+        }
 
         if(plugin.getSettings().getBoolean("settings.permission_enabled")) {
             Bukkit.getOnlinePlayers().forEach((target) -> {
                 if(target.hasPermission("blockbroadcaster.see.broadcasts")) {
                     target.sendMessage(
                             plugin.getSettings().getString("settings.broadcast")
-                                    .replace("%amount%", String.valueOf(amount))
-                                    .replace("%radius%", String.valueOf(radius))
                                     .replace("%player%", player.getName())
                                     .replace("%block%", whitelistedMaterials.get(block.getType()))
                     );
@@ -55,8 +52,6 @@ public class BlockBreakListener implements Listener {
         } else {
             Bukkit.broadcastMessage(
                     plugin.getSettings().getString("settings.broadcast")
-                            .replace("%amount%", String.valueOf(amount))
-                            .replace("%radius%", String.valueOf(radius))
                             .replace("%player%", player.getName())
                             .replace("%block%", whitelistedMaterials.get(block.getType()))
             );
