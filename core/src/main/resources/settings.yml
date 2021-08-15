@@ -1,0 +1,31 @@
+# Welcome to the BlockBroadcaster configuration file!
+#
+# Some information that you may want to know:
+# - The permission to see the broadcast is "blockbroadcaster.see.broadcasts"
+# - There are some blocks blacklisted by default (ex. bedrock, stone, grass, etc.)
+# - The radius is the amount of blocks (width & height) to check
+# - In the blocks_checked string list, there is a separator ";". The first part is the block itself, the other one is the
+#   localized name used in chat.
+#
+settings:
+  enabled: true
+  radius: 15
+  survival_only: true
+  permission_enabled: true
+  no_permission: "&cYou don't have enough permissions to do that."
+  already_enabled: "&3&lBLOCK &8\xbb &rBroadcasting is already enabled."
+  broadcasting_enabled: "&3&lBLOCK &8\xbb &rBroadcasting has been enabled."
+  already_disabled: "&3&lBLOCk &8\xbb &rBroadcasting is already disabled."
+  broadcasting_disabled: "&3&lBLOCK &8\xbb &rBroadcasting has been disabled."
+  settings_reloaded: "&3&lBLOCK &8\xbb &rSettings have been reloaded."
+  broadcast: "&3&lBLOCK &8\xbb &a%player% &rjust found &a%amount%&r of &a%block%&r blocks!"
+  unknown_subcommand: "&3&lBLOCK &8\xbb &rUnknown subcommand. Please use &a/blockbroadcaster help&r for a list of them."
+  blocks_checked:
+    - "DIAMOND_ORE;Diamond Ore"
+    - "ANCIENT_DEBRIS;Ancient Debris"
+    - "IRON_ORE;Iron Ore"
+    - "GOLD_ORE;Gold Ore"
+    - "COAL_ORE;Coal Ore"
+    - "EMERALD_ORE;Emerald Ore"
+    - "LAPIS_ORE;Lapis Ore"
+    - "REDSTONE_ORE;Redstone Ore"

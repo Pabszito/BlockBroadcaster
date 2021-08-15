@@ -1,0 +1,9 @@
+name: BlockBroadcaster
+main: net.creepland.blockbroadcaster.BlockBroadcaster
+version: ${pom.version}
+author: Pabszito
+
+commands:
+  blockbroadcaster:
+    description: BlockBroadcaster main command.
+    aliases: [blockbc]
