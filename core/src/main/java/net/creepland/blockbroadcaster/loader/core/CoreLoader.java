@@ -6,6 +6,15 @@ import net.creepland.blockbroadcaster.loader.Loader;
 import net.creepland.blockbroadcaster.loader.command.CommandLoader;
 import net.creepland.blockbroadcaster.loader.listener.ListenerLoader;
 import net.creepland.blockbroadcaster.loader.settings.SettingsLoader;
+import net.creepland.blockbroadcaster.loader.task.TaskLoader;
+import net.creepland.blockbroadcaster.util.UpdateChecker;
+import org.bukkit.Bukkit;
+import org.bukkit.util.Consumer;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Scanner;
 
 @RequiredArgsConstructor
 public class CoreLoader implements Loader {
@@ -17,7 +26,8 @@ public class CoreLoader implements Loader {
         loadLoaders(
                 new SettingsLoader(plugin),
                 new ListenerLoader(plugin),
-                new CommandLoader(plugin)
+                new CommandLoader(plugin),
+                new TaskLoader(plugin)
         );
 
         plugin.getLogger().info(
