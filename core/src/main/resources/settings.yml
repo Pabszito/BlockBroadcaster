@@ -9,7 +9,6 @@
 #
 settings:
   enabled: true
-  radius: 15
   survival_only: true
   permission_enabled: true
   no_permission: "&cYou don't have enough permissions to do that."
@@ -18,9 +17,9 @@ settings:
   already_disabled: "&3&lBLOCk &8\xbb &rBroadcasting is already disabled."
   broadcasting_disabled: "&3&lBLOCK &8\xbb &rBroadcasting has been disabled."
   settings_reloaded: "&3&lBLOCK &8\xbb &rSettings have been reloaded."
-  broadcast: "&3&lBLOCK &8\xbb &a%player% &rjust found &a%amount%&r of &a%block%&r blocks!"
+  broadcast: "&3&lBLOCK &8\xbb &a%player% &rjust found &a%block%&r!"
   unknown_subcommand: "&3&lBLOCK &8\xbb &rUnknown subcommand. Please use &a/blockbroadcaster help&r for a list of them."
-  blocks_checked:
+  whitelisted_blocks:
     - "DIAMOND_ORE;Diamond Ore"
     - "ANCIENT_DEBRIS;Ancient Debris"
     - "IRON_ORE;Iron Ore"
@@ -29,3 +28,4 @@ settings:
     - "EMERALD_ORE;Emerald Ore"
     - "LAPIS_ORE;Lapis Ore"
     - "REDSTONE_ORE;Redstone Ore"
+    - "NETHER_QUARTZ_ORE;Nether Quartz Ore"

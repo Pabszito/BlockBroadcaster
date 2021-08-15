@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import net.creepland.blockbroadcaster.BlockBroadcaster;
 import net.creepland.blockbroadcaster.listener.BlockBreakListener;
 import net.creepland.blockbroadcaster.loader.Loader;
+import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 
@@ -20,7 +21,7 @@ public class ListenerLoader implements Loader {
     }
 
     private void loadListeners(Listener... listeners) {
-        PluginManager manager = plugin.getServer().getPluginManager();
+        PluginManager manager = Bukkit.getServer().getPluginManager();
         for(Listener listener : listeners) {
             manager.registerEvents(listener, plugin);
         }
