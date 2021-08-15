@@ -2,6 +2,7 @@ name: BlockBroadcaster
 main: net.creepland.blockbroadcaster.BlockBroadcaster
 version: ${pom.version}
 author: Pabszito
+api-version: 1.16
 
 commands:
   blockbroadcaster:
