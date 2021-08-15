@@ -3,6 +3,7 @@ package net.creepland.blockbroadcaster.loader.core;
 import lombok.RequiredArgsConstructor;
 import net.creepland.blockbroadcaster.BlockBroadcaster;
 import net.creepland.blockbroadcaster.loader.Loader;
+import net.creepland.blockbroadcaster.loader.command.CommandLoader;
 import net.creepland.blockbroadcaster.loader.listener.ListenerLoader;
 import net.creepland.blockbroadcaster.loader.settings.SettingsLoader;
 
@@ -15,7 +16,8 @@ public class CoreLoader implements Loader {
     public void load() {
         loadLoaders(
                 new SettingsLoader(plugin),
-                new ListenerLoader(plugin)
+                new ListenerLoader(plugin),
+                new CommandLoader(plugin)
         );
 
         plugin.getLogger().info(
@@ -25,10 +27,6 @@ public class CoreLoader implements Loader {
 
     @Override
     public void unload() {
-        unloadLoaders(
-                new SettingsLoader(plugin)
-        );
-
         plugin.getLogger().info(
                 "BlockBroadcaster version " + plugin.getDescription().getVersion() + " has been disabled."
         );
@@ -37,12 +35,6 @@ public class CoreLoader implements Loader {
     private void loadLoaders(Loader... loaders) {
         for(Loader loader : loaders) {
             loader.load();
-        }
-    }
-
-    private void unloadLoaders(Loader... loaders) {
-        for(Loader loader : loaders) {
-            loader.unload();
         }
     }
 }
