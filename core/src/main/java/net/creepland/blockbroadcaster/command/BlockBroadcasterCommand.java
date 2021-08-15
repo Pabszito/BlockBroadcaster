@@ -19,7 +19,7 @@ public class BlockBroadcasterCommand implements CommandExecutor {
         if(args.length < 1) {
             commandSender.sendMessage(ChatColor.translateAlternateColorCodes(
                     '&',
-                    "&3&lBLOCK &8» &rThis server is running BlockBroadcaster version "
+                    "&3&lBLOCK &8» &rThis server is running &aBlockBroadcaster version &a"
                             + plugin.getDescription().getVersion()
                             + "&r made by &aPabszito&r."));
 
