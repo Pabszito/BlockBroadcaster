@@ -42,13 +42,15 @@ public class BlockBreakListener implements Listener {
 
         if(plugin.getSettings().getBoolean("settings.permission_enabled")) {
             Bukkit.getOnlinePlayers().forEach((target) -> {
-                target.sendMessage(
-                        plugin.getSettings().getString("settings.broadcast")
-                                .replace("%amount%", String.valueOf(amount))
-                                .replace("%radius%", String.valueOf(radius))
-                                .replace("%player%", player.getName())
-                                .replace("%block%", whitelistedMaterials.get(block.getType()))
-                );
+                if(target.hasPermission("blockbroadcaster.see.broadcasts")) {
+                    target.sendMessage(
+                            plugin.getSettings().getString("settings.broadcast")
+                                    .replace("%amount%", String.valueOf(amount))
+                                    .replace("%radius%", String.valueOf(radius))
+                                    .replace("%player%", player.getName())
+                                    .replace("%block%", whitelistedMaterials.get(block.getType()))
+                    );
+                }
             });
         } else {
             Bukkit.broadcastMessage(
