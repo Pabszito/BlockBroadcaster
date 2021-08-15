@@ -1,5 +1,6 @@
 package net.creepland.blockbroadcaster.api.block;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 
 import java.util.HashMap;
@@ -12,10 +13,16 @@ public class BlockParser {
         Map<Material, String> materials = new HashMap<>();
         for(String block : blocks) {
             String[] split = block.split(";");
-            Material material = Material.valueOf(split[0]);
-            String localizedName = split[1];
+            try {
+                Material material = Material.valueOf(split[0].toUpperCase());
+                String localizedName = split[1];
 
-            materials.put(material, localizedName);
+                materials.put(material, localizedName);
+            }catch(IllegalArgumentException ex) {
+                Bukkit.getLogger().warning(
+                        "[BlockBroadcaster] Unable to parse whitelisted block: " + split[0].toUpperCase() + "; "
+                        + "are you in the right Minecraft version?");
+            }
         }
 
         return materials;
