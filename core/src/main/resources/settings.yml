@@ -1,12 +1,12 @@
 # Welcome to the BlockBroadcaster configuration file!
 #
-# Some information that you may want to know:
+# Some basic information that you may want to know:
 # - The permission to see the broadcast is "blockbroadcaster.see.broadcasts"
-# - There are some blocks blacklisted by default (ex. bedrock, stone, grass, etc.)
-# - The radius is the amount of blocks (width & height) to check
-# - In the blocks_checked string list, there is a separator ";". The first part is the block itself, the other one is the
-#   localized name used in chat.
+# - If an invalid block is provided, it will just show a warning in the server console.
+# - In the "whitelisted_blocks" string list, there is a separator ";". The first part is the block itself, 
+#   the other one is the localized name used in chat.
 #
+
 settings:
   enabled: true
   survival_only: true
